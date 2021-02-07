@@ -13,4 +13,4 @@ Navigate to this repository and proceed as follows (make sure pip, python>=3.9, 
 		- -d: Download pdfs from most recent json
 		
 		
-*Note: If you have homebrew installed the command `brew reinstall python` will install the newest version of python*
+*Note: If you have homebrew installed the command `brew reinstall python` will install the newest latest of python*
