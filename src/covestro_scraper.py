@@ -346,7 +346,7 @@ def main(scrape_covestro, download_pdfs, display_first_x_entries, display_first_
 
     #--------All Path Specifications------------------------------
     # Grab the absolute project base directory path
-    abs_proj_dir = f"{os.getcwd().removesuffix('/src')}"
+    abs_proj_dir = str(os.getcwd()).removesuffix('/src')
     # Define path to json deliverable based on input product_type
     json_path = f"{abs_proj_dir}/dat/{product_type}/covestro_{product_type}.json"
     # Define path to pdfs for product type
