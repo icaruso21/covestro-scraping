@@ -1,7 +1,7 @@
 # covestro-scraping
 A python script to scrape product information and corresponding datasheet pdfs from Covestro
 
-## Installation
+## Installation + Execution
 Navigate to this repository and proceed as follows (make sure pip and python3 are installed first):
 - Create virtual environment: `python3 -m venv env`
 - Activate virtual environment: `source env/bin/activate`
