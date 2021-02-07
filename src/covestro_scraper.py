@@ -34,7 +34,6 @@ display_first_x_entries = 1500
 display_first_x_entries_verbose = False
 #----------------------------------------------
 
-print(args)
 if args.verbose:
     display_first_x_entries_verbose = True
 if args.scrape:
