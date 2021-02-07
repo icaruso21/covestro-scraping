@@ -2,7 +2,7 @@
 A python script to scrape product information and corresponding datasheet pdfs from Covestro
 
 ## Installation + Execution
-Navigate to this repository and proceed as follows (make sure pip, python3>=3.9, and Google Chrome are installed first):
+Navigate to this repository and proceed as follows (make sure pip, python>=3.9, and Google Chrome are installed first):
 - Create virtual environment: `python3 -m venv env`
 - Activate virtual environment: `source env/bin/activate`
 - Install required dependencies: `pip install -r ./requirements.txt`
@@ -11,4 +11,4 @@ Navigate to this repository and proceed as follows (make sure pip, python3>=3.9,
 		- -s: Scrape Covestro for products
 		- -v: Print full information about each product
 		- -d: Download pdfs from most recent json
-
+*Note: If you have homebrew installed the command `brew reinstall python` will install the newest version of python*
