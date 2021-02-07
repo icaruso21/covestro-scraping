@@ -16,9 +16,9 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-v", help="Print full information about each product")
-parser.add_argument("-s", help="Scrape Covestro for products")
-parser.add_argument("-d", help="Download pdfs from most recent json")
+parser.add_argument("-s", "--scrape", action="store_true", help="Scrape Covestro for products")
+parser.add_argument("-v", "--verbose", action="store_true", help="Print full information about each product")
+parser.add_argument("-d", "--download", action="store_true", help="Download pdfs from most recent json")
 
 args = parser.parse_args()
 
@@ -34,16 +34,16 @@ display_first_x_entries = 1500
 display_first_x_entries_verbose = False
 #----------------------------------------------
 
-if args.v:
+print(args)
+if args.verbose:
     display_first_x_entries_verbose = True
-if args.s:
+if args.scrape:
     scrape_covestro = True
-if args.d:
+if args.download:
     download_pdfs = True
 
 #----Supplying website and driver locations----
 URL = 'https://solutions.covestro.com/en/products/?query=:relevance:countries:US'
-chrome_driver_path = '../chromedriver'
 #----------------------------------------------
 
 #-Get a product's information by parsing 'product' html and querying its specific information page-
@@ -310,6 +310,7 @@ def save_products_df(products_df, json_path, save_deliverable = True):
     # write json obj for user input product query results to a file
     with open(json_path, 'w') as json_file:
         json.dump(products_json, json_file)
+    print(f"Verbose JSON saved to: {json_path}")
 
     # If we want to save a more concise version of the json
     if save_deliverable:
@@ -321,6 +322,7 @@ def save_products_df(products_df, json_path, save_deliverable = True):
         # write json obj for user input product query results to a file
         with open(deliverable_path, 'w') as json_file:
             json.dump(products_json, json_file)
+        print(f"JSON deliverable saved to: {deliverable_path}")
 
 #--------------------------------------------------------------------------------------------------
 
@@ -350,6 +352,7 @@ def main(scrape_covestro, download_pdfs, display_first_x_entries, display_first_
     json_path = f"{abs_proj_dir}/dat/{product_type}/covestro_{product_type}.json"
     # Define path to pdfs for product type
     product_type_dir_path = f'{abs_proj_dir}/dat/{product_type}'
+    chrome_driver_path = f"{abs_proj_dir}/chromedriver"
     #-------------------------------------------------------------
 
     # Scrape covestro for json to update else load in local copy
