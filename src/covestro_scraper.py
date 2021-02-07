@@ -371,4 +371,5 @@ def main(scrape_covestro, download_pdfs, display_first_x_entries, display_first_
 
 
 #Execute program-----------------------------------------------------------------------------------
-main(scrape_covestro, download_pdfs, display_first_x_entries, display_first_x_entries_verbose, webdriver)
+if __name__ == "__main__":
+    main(scrape_covestro, download_pdfs, display_first_x_entries, display_first_x_entries_verbose, webdriver)
