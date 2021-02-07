@@ -13,18 +13,33 @@ import numpy as np
 import json
 import requests
 import os
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-v", help="Print full information about each product")
+parser.add_argument("-s", help="Scrape Covestro for products")
+parser.add_argument("-d", help="Download pdfs from most recent json")
+
+args = parser.parse_args()
+
 
 #-------------------Options--------------------
 # scrape product info from website? (produces json)
-scrape_covestro = True
+scrape_covestro = False
 # download pdfs? (loads json from file and downloads pds for each entry)
-download_pdfs = True
+download_pdfs = False
 # Parse most current json product after execution?
 display_first_x_entries = 1500
 # which json to view
 display_first_x_entries_verbose = False
 #----------------------------------------------
 
+if args.v:
+    display_first_x_entries_verbose = True
+if args.s:
+    scrape_covestro = True
+if args.d:
+    download_pdfs = True
 
 #----Supplying website and driver locations----
 URL = 'https://solutions.covestro.com/en/products/?query=:relevance:countries:US'
